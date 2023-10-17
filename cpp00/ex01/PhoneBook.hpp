@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:26:49 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/17 15:06:36 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/17 15:54:59 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ void	save_phone_number(PhoneBook *phone_book, int index);
 void	save_darkest_secret(PhoneBook *phone_book, int index);
 
 //support functions
-void	initial_index(PhoneBook *phone_book);
 int		ft_isdigits(std::string str);
+void	search_cmd(PhoneBook phone_book);
+void	chose_index(PhoneBook phone_book);
+int		check_index(PhoneBook phone_book, std::string str);
+void	add_cmd(PhoneBook *phone_book, int *index);
 
 //display functions
 void	display_header_phone_book();
