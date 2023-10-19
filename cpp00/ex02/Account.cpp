@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 17:12:15 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/18 22:44:42 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:56:01 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,28 @@
 #include <iostream>
 #include <chrono>
 #include <string>
+#include <iomanip>
 
 int Account::_nbAccounts;
 int Account::_totalAmount;
 int Account::_totalNbDeposits;
 int Account::_totalNbWithdrawals;
-int	pre_total_amount;
-
-Account::Account(){
-}
 
 Account::Account( int initial_deposit )
 {
 	_amount = initial_deposit;
-	Account::_displayTimestamp();
 	_accountIndex = Account::_nbAccounts;
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "amount:" << _amount << ";";
-	Account::_totalAmount += _amount;
 	std::cout << "created" << std::endl;
+	Account::_totalAmount += _amount;
 	Account::_nbAccounts++;
 }
 
 Account::~Account()
 {
-	Account::_displayTimestamp();
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "closed" << std::endl;
@@ -63,7 +60,7 @@ int	Account::getNbWithdrawals( void )
 }
 void	Account::displayAccountsInfos( void )
 {
-	Account::_displayTimestamp();
+	_displayTimestamp();
 	std::cout << "accounts:" << Account::_nbAccounts << ";";
 	std::cout << "total:" << Account::_totalAmount << ";";
 	Account::_totalAmount = 0;
@@ -72,23 +69,18 @@ void	Account::displayAccountsInfos( void )
 }
 void	Account::_displayTimestamp( void )
 {
-    std::time_t timestamp = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-
-    // Convert the timestamp to a struct tm for easy manipulation
-    std::tm timeInfo = *std::localtime(&timestamp);
-
-    // Format the date and time as a string
-    char formattedTime[20];  // 20 characters are enough for "YYYYMMDD_HHMMSS"
-    std::strftime(formattedTime, sizeof(formattedTime), "%Y%m%d_%H%M%S", &timeInfo);
-    std::string timestampStr(formattedTime);
-
-    std::cout << '[' << timestampStr << "] ";
+	std::time_t now = time(0);
+	std::tm *tm_time = std::localtime(&now);
+	std::cout << "[" << 1900 + tm_time->tm_year << 1 + tm_time->tm_mon << tm_time->tm_mday << "_";
+	std::cout << std::setfill('0') << std::setw(2) << tm_time->tm_hour;
+	std::cout << std::setfill('0') << std::setw(2) << tm_time->tm_min;
+	std::cout << std::setfill('0') << std::setw(2) << tm_time->tm_sec << "] ";
 }
 
 
 void	Account::makeDeposit( int deposit )
 {
-	Account::_displayTimestamp();
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "p_amount:" << _amount << ";";
 	std::cout << "deposit:" << deposit << ";";
@@ -100,7 +92,7 @@ void	Account::makeDeposit( int deposit )
 }
 void	Account::displayStatus( void ) const
 {
-	Account::_displayTimestamp();
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "deposits:" << _nbDeposits << ";";
@@ -110,10 +102,10 @@ void	Account::displayStatus( void ) const
 
 bool	Account::makeWithdrawal( int withdrawal )
 {
-	Account::_displayTimestamp();
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "p_amount:" << _amount << ";";
-	if (Account::_amount - withdrawal < 0)
+	if (_amount - withdrawal < 0)
 	{
 		std::cout << "withdrawal:refused" << std::endl;
 		Account::_totalAmount += _amount;

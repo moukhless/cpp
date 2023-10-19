@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions_supp.cpp                                 :+:      :+:    :+:   */
+/*   FunctionsSupp.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:32:09 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/17 15:55:37 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:31:43 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include "FunProto.h"
 
 int	ft_isdigits(std::string str)
 {
@@ -26,13 +27,13 @@ int	ft_isdigits(std::string str)
 	return (1);
 }
 
-void	search_cmd(PhoneBook phone_book)
+void	PhoneBook::search_cmd()
 {
-	display_saved_contacts(phone_book);
-	chose_index(phone_book);
+	display_saved_contacts();
+	chose_index();
 }
 
-void	chose_index(PhoneBook phone_book)
+void	PhoneBook::chose_index()
 {
 	std::string	str;
 
@@ -40,19 +41,15 @@ void	chose_index(PhoneBook phone_book)
 	{
 		std::cout << "Enter index between 1 and 8: ";
 		if (!std::getline(std::cin, str))
-		{
-			std::cin.clear();
-			clearerr(stdin);
-			std::cout << std::endl;
-		}
+			exit (1);
 		if (!ft_isdigits(str))
 			std::cout << "!! Wrong input enter a sequence of numbers !!" << std::endl;
-		else if (check_index(phone_book, str))
+		else if (check_index(str))
 			break;
 	}
 }
 
-int	check_index(PhoneBook phone_book, std::string str)
+int	PhoneBook::check_index(std::string str)
 {
 	long	index;
 	char	*ptr;
@@ -63,24 +60,24 @@ int	check_index(PhoneBook phone_book, std::string str)
 		std::cout << "!! Invalid index try again !!" << std::endl;
 		return (0);
 	}
-	else if (phone_book.contacts[index - 1].get_first_name().empty())
+	else if (contacts[index - 1].get_first_name().empty())
 	{
 		std::cout << "!! this index is empty !!" << std::endl;
 		return (1);
 	}
 	else
-		display_contact_information(phone_book, index);
+		display_contact_information(index);
 	return (1) ;
 }
 
-void	add_cmd(PhoneBook *phone_book, int *index)
+void	PhoneBook::add_cmd(int *index)
 {
-	phone_book->contacts[*index - 1].set_index(*index);
-	save_first_name(phone_book, *index);
-	save_last_name(phone_book, *index);
-	save_nick_name(phone_book, *index);
-	save_phone_number(phone_book, *index);
-	save_darkest_secret(phone_book, *index);
+	contacts[*index - 1].set_index(*index);
+	save_first_name(*index);
+	save_last_name(*index);
+	save_nick_name(*index);
+	save_phone_number(*index);
+	save_darkest_secret(*index);
 	(*index)++;
 	if (*index == 9)
 		*index = 1;

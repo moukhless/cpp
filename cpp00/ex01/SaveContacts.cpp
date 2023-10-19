@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   save_contacts.cpp                                  :+:      :+:    :+:   */
+/*   SaveContacts.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:17:30 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/17 14:00:50 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:18:54 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include "FunProto.h"
 
-void	save_first_name(PhoneBook *phone_book, int index)
+void	PhoneBook::save_first_name(int index)
 {
 	std::string	str;
 
@@ -20,16 +21,12 @@ void	save_first_name(PhoneBook *phone_book, int index)
 	{
 		std::cout << "First Name: ";
 		if (!std::getline(std::cin, str))
-		{
-			std::cin.clear();
-			clearerr(stdin);
-			std::cout << std::endl;
-		}
+			exit (1);
 	}
-	phone_book->contacts[index - 1].set_first_name(str);
+	contacts[index - 1].set_first_name(str);
 }
 
-void	save_last_name(PhoneBook *phone_book, int index)
+void	PhoneBook::save_last_name(int index)
 {
 	std::string	str;
 
@@ -37,16 +34,12 @@ void	save_last_name(PhoneBook *phone_book, int index)
 	{
 		std::cout << "Last Name: ";
 		if (!std::getline(std::cin, str))
-		{
-			std::cin.clear();
-			clearerr(stdin);
-			std::cout << std::endl;
-		}
+			exit (1);
 	}
-	phone_book->contacts[index - 1].set_last_name(str);
+	contacts[index - 1].set_last_name(str);
 }
 
-void	save_nick_name(PhoneBook *phone_book, int index)
+void	PhoneBook::save_nick_name(int index)
 {
 	std::string	str;
 
@@ -54,16 +47,12 @@ void	save_nick_name(PhoneBook *phone_book, int index)
 	{
 		std::cout << "Nick Name: ";
 		if (!std::getline(std::cin, str))
-		{
-			std::cin.clear();
-			clearerr(stdin);
-			std::cout << std::endl;
-		}
+			exit (1);
 	}
-	phone_book->contacts[index - 1].set_nick_name(str);
+	contacts[index - 1].set_nick_name(str);
 }
 
-void	save_phone_number(PhoneBook *phone_book, int index)
+void	PhoneBook::save_phone_number(int index)
 {
 	std::string	str;
 
@@ -71,18 +60,14 @@ void	save_phone_number(PhoneBook *phone_book, int index)
 	{
 		std::cout << "Phone number: ";
 		if (!std::getline(std::cin, str))
-		{
-			std::cin.clear();
-			clearerr(stdin);
-			std::cout << std::endl;
-		}
+			exit (1);
 		if (!ft_isdigits(str))
 			std::cout << "!! Wrong input enter a sequence of numbers !!" << std::endl;
 	}
-	phone_book->contacts[index - 1].set_phone_number(str);
+	contacts[index - 1].set_phone_number(str);
 }
 
-void	save_darkest_secret(PhoneBook *phone_book, int index)
+void	PhoneBook::save_darkest_secret(int index)
 {
 	std::string	str;
 
@@ -90,11 +75,7 @@ void	save_darkest_secret(PhoneBook *phone_book, int index)
 	{
 		std::cout << "Darkest secret: ";
 		if (!std::getline(std::cin, str))
-		{
-			std::cin.clear();
-			clearerr(stdin);
-			std::cout << std::endl;
-		}
+			exit (1);
 	}
-	phone_book->contacts[index - 1].set_darkest_secret(str);
+	contacts[index - 1].set_darkest_secret(str);
 }

@@ -6,7 +6,7 @@
 #    By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 20:32:42 by amoukhle          #+#    #+#              #
-#    Updated: 2023/10/18 20:39:21 by amoukhle         ###   ########.fr        #
+#    Updated: 2023/10/19 12:44:12 by amoukhle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,3 +30,5 @@ fclean : clean
 	rm -r $(NAME)
 
 re : fclean all
+
+.PHONY : clean fclean re all

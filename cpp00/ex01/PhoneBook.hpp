@@ -6,44 +6,40 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:26:49 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/17 15:54:59 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:36:17 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONE_BOOK
 # define PHONE_BOOK
 
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include <cstdlib>
 # include "Contact.hpp"
 
 class PhoneBook {
 	
+	private:
+
+		Contact	contacts[8];
+
 	public:
-		Contact contacts[8];
+
+		void	save_first_name(int index);
+		void	save_last_name(int index);
+		void	save_nick_name(int index);
+		void	save_phone_number(int index);
+		void	save_darkest_secret(int index);
+
+		void	display_header_phone_book();
+		void	display_empty_columns();
+		void	display_columns(int index);
+		void	display_saved_contacts();
+		void	display_contact_information(int index);
+
+		void	search_cmd();
+		void	add_cmd(int *index);
+		void	chose_index();
+		int		check_index(std::string str);
+
 };
-
-//save contacts functions
-void	save_first_name(PhoneBook *phone_book, int index);
-void	save_last_name(PhoneBook *phone_book, int index);
-void	save_nick_name(PhoneBook *phone_book, int index);
-void	save_phone_number(PhoneBook *phone_book, int index);
-void	save_darkest_secret(PhoneBook *phone_book, int index);
-
-//support functions
-int		ft_isdigits(std::string str);
-void	search_cmd(PhoneBook phone_book);
-void	chose_index(PhoneBook phone_book);
-int		check_index(PhoneBook phone_book, std::string str);
-void	add_cmd(PhoneBook *phone_book, int *index);
-
-//display functions
-void	display_header_phone_book();
-void	display_empty_columns();
-void	display_columns(PhoneBook phone_book, int index);
-void	display_saved_contacts(PhoneBook phone_book);
-void	display_contact_information(PhoneBook phone_book, int index);
 
 #endif
