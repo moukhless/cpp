@@ -5,13 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/21 21:42:39 by amoukhle          #+#    #+#              #
-#    Updated: 2023/10/22 12:56:48 by amoukhle         ###   ########.fr        #
+#    Created: 2023/10/22 13:15:28 by amoukhle          #+#    #+#              #
+#    Updated: 2023/10/22 13:20:33 by amoukhle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = harl2.0
+NAME = harlFilter
 SRCS = main.cpp Harl.cpp
 OBJS = $(SRCS:.cpp=.o)
 
@@ -29,6 +29,6 @@ clean :
 fclean : clean
 	rm -f $(NAME)
 
-re : fclean clean
+re : fclean all
 
 .PHONY : all clean fclean re

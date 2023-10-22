@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 21:46:38 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/22 14:00:09 by amoukhle         ###   ########.fr       */
+/*   Created: 2023/10/22 13:18:41 by amoukhle          #+#    #+#             */
+/*   Updated: 2023/10/22 13:19:57 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-int main()
+#include <iostream>
+
+class Harl
 {
-	Harl	harl;
+	private:
 
-	harl.complain("WARNING");
-	return (0);
-}
+		void	debug( void );
+		void	info( void );
+		void	warning( void );
+		void	error( void );
+
+	public:
+
+		void	complain( std::string level );
+};
+
+#endif

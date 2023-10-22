@@ -5,17 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 21:46:38 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/22 14:00:09 by amoukhle         ###   ########.fr       */
+/*   Created: 2023/10/22 13:18:15 by amoukhle          #+#    #+#             */
+/*   Updated: 2023/10/22 14:12:06 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int main()
+int main(int ac, char **av)
 {
 	Harl	harl;
 
-	harl.complain("WARNING");
+	if (ac == 2)
+		harl.complain(av[1]);
+	else
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	return (0);
 }
