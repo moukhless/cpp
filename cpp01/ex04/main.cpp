@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 18:11:03 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/23 15:21:25 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/23 22:51:11 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,35 @@ int	openOutputFile(std::ofstream& outputFile, std::string newFile)
 	return (1);
 }
 
+std::string	replaceS1WithS2(std::string str, std::string s1, std::string s2)
+{
+	std::string	firstPart;
+	std::string	secondPart;
+	int			start = 0;
+
+	while (str.find(s1, start) != std::string::npos)
+	{
+		firstPart = str.substr(0, str.find(s1));
+		secondPart = str.substr(str.find(s1) + s1.length());
+		str = firstPart + s2 + secondPart;
+		start = firstPart.length() + s2.length();
+	}
+	return (str);
+}
+
 void	replaceInToOut(std::ifstream& inputFile, std::ofstream& outputFile, std::string s1, std::string s2)
 {
 	std::string	str;
 	
 	while (std::getline(inputFile, str))
 	{
+		if (!s1.empty() && !s2.empty() && s1.compare(s2))
+			str = replaceS1WithS2(str, s1, s2);
 		if (inputFile.eof())
 			outputFile << str;
 		else
 			outputFile << str << std::endl;
 	}
-	outputFile << s1;
-	if (!s2.empty() && !s1.empty())
-		outputFile << std::endl;
-	outputFile << s2;
 }
 
 void	writeInOutputFile(char **argv)
