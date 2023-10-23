@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:04:10 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/21 22:27:34 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/23 14:19:11 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 void	randomChump( std::string name )
 {
-	Zombie newz;
+	Zombie newz(name);
 
-	newz.SetName(name);
 	newz.announce();
 }

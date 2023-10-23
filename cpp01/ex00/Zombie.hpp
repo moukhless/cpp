@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 19:59:27 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/20 15:17:57 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/23 14:17:33 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ class Zombie {
 
 	public:
 
-		void		announce( void );
-		void		SetName( std::string name);
-
+		Zombie( std::string name );
 		~Zombie( void );
+
+		void		announce( void );
 };
 
 #endif

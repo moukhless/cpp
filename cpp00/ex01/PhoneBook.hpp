@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:26:49 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/19 18:36:17 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/22 14:48:21 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define PHONE_BOOK
 
 # include "Contact.hpp"
+# include <iomanip>
+# include <cstdlib>
+# include <string>
 
 class PhoneBook {
 	

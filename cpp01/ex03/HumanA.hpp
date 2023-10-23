@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:49:32 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/21 17:19:07 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:57:29 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class HumanA
 {
 	private:
-	
+
 		Weapon&		weapon;
 		std::string	name;
 

@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:16:27 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/20 15:22:57 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/23 14:18:53 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 Zombie*	newZombie( std::string name )
 {
-	Zombie *newZ = new Zombie;
+	Zombie *newZ = new Zombie(name);
 
-	newZ->SetName(name);
 	return (newZ);
 }

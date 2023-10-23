@@ -6,12 +6,11 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 16:10:33 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/19 16:16:53 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/22 14:37:51 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include "FunProto.h"
 
 std::string Contact::get_first_name()
 {

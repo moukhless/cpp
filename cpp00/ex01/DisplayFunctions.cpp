@@ -6,12 +6,11 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:39:47 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/19 18:33:37 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/22 14:37:42 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include "FunProto.h"
 
 void	PhoneBook::display_header_phone_book()
 {

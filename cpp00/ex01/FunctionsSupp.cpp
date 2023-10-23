@@ -6,12 +6,11 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:32:09 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/22 11:49:45 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/22 14:37:46 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include "FunProto.h"
 
 int	ft_isdigits(std::string str)
 {

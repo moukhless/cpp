@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 21:46:38 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/22 14:00:09 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:24:09 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ int main()
 {
 	Harl	harl;
 
-	harl.complain("WARNING");
+	harl.complain("INFO");
 	return (0);
 }

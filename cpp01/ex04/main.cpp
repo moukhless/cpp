@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 18:11:03 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/21 21:12:44 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:21:25 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ void	writeInOutputFile(char **argv)
 		exit (1);
 	}
 	replaceInToOut(inputFile, outputFile, s1, s2);
+	inputFile.close();
+	outputFile.close();
 }
 
 int main(int argc, char **argv)
