@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 18:11:03 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/23 22:51:11 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:59:38 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ std::string	replaceS1WithS2(std::string str, std::string s1, std::string s2)
 
 	while (str.find(s1, start) != std::string::npos)
 	{
-		firstPart = str.substr(0, str.find(s1));
-		secondPart = str.substr(str.find(s1) + s1.length());
+		firstPart = str.substr(0, str.find(s1, start));
+		secondPart = str.substr(str.find(s1, start) + s1.length());
 		str = firstPart + s2 + secondPart;
 		start = firstPart.length() + s2.length();
 	}
