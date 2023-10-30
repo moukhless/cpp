@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/29 09:39:50 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/30 17:27:58 by amoukhle         ###   ########.fr       */
+/*   Created: 2023/10/30 15:51:31 by amoukhle          #+#    #+#             */
+/*   Updated: 2023/10/30 17:15:02 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef POINT_H
+# define POINT_H
+
 #include "Point.hpp"
-#include "Point.h"
 
-int main( void ) {
-	Point a(1, 1);
-	Point b(4, 5);
-	Point c(4, 2);
-	Point point(3, 2);
+bool	bsp( Point const a, Point const b, Point const c, Point const point);
+float	distanceBetweenTwoPoints( Point const a, Point const b );
+float	area(Point const a, Point const b, Point const c);
 
-	std::cout << bsp(a, b, c, point) << std::endl;
-return 0;
-}
+#endif
