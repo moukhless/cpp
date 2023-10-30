@@ -6,11 +6,12 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 09:40:44 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/29 12:24:50 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/30 20:09:25 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include "Fixed.h"
 
 const int Fixed::fractionalBits = 8;
 
@@ -34,7 +35,7 @@ Fixed::Fixed( const int value )
 
 Fixed::Fixed( const float value )
 {
-	fixedPointValue = roundf(value * std::pow(2, fractionalBits));
+	fixedPointValue = roundf(value * myPow(2, fractionalBits));
 	std::cout << "Float constructor called" << std::endl;
 }
 
@@ -69,7 +70,15 @@ int Fixed::toInt( void ) const
 
 float Fixed::toFloat( void ) const
 {
-	return (fixedPointValue / std::pow(2, fractionalBits));
+	return (fixedPointValue / myPow(2, fractionalBits));
+}
+
+double	myPow(int num, int power)
+{
+	int	result = num;
+	for (int i = 1; i < power; i++)
+		result *= num;
+	return (result);
 }
 
 Fixed::~Fixed()

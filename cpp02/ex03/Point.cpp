@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 22:17:54 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/30 17:31:02 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/30 19:28:52 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,28 +41,29 @@ Fixed	Point::gety( void ) const
 	return (y);
 }
 
-float	distanceBetweenTwoPoints( Point const a, Point const b )
+Fixed	area(Point const a, Point const b, Point const c)
 {
-	return (sqrt(std::pow((a.getx().toFloat() - b.getx().toFloat()), 2) + std::pow((a.gety().toFloat() - b.gety().toFloat()), 2)));
-}
-
-float	area(Point const a, Point const b, Point const c)
-{
-	float	ab = distanceBetweenTwoPoints(a, b);
-	float	ac = distanceBetweenTwoPoints(a, c);
-	float	bc = distanceBetweenTwoPoints(b, c);
-	float	p = (ab + bc + ac) / 2;
-
-	return (sqrt(p * (p - ab) * (p - ac) * (p - bc)));
+	Fixed xy = (a.getx() * b.gety()) + (b.getx() * c.gety()) + (c.getx() * a.gety());
+	Fixed yx = (a.gety() * b.getx()) + (b.gety() * c.getx()) + (c.gety() * a.getx());
+	Fixed sum = xy - yx;
+	if (sum < 0)
+		sum = sum * (-1);
+	return (sum / 2);
 }
 
 bool	bsp( Point const a, Point const b, Point const c, Point const point)
 {
-	float	areaABC = area(a, b, c);
-	float	areaABPoint = area(a, b, point);
-	float	areaACPoint = area(a, c, point);
-	float	areaBCPoint = area(b, c, point);
+	Fixed	areaABC = area(a, b, c);
+	Fixed	areaABPoint = area(a, b, point);
+	Fixed	areaACPoint = area(a, c, point);
+	Fixed	areaBCPoint = area(b, c, point);
 
+	if (areaABPoint == 0 || areaACPoint == 0 || areaBCPoint == 0)
+		return (false);
+	if ((a.getx() == point.getx() && a.gety() == point.gety())
+		|| (b.getx() == point.getx() && b.gety() == point.gety())
+		|| (c.getx() == point.getx() && c.gety() == point.gety()))
+		return (false);
 	if (areaABC == areaABPoint + areaACPoint + areaBCPoint)
 		return (true);
 	return (false);

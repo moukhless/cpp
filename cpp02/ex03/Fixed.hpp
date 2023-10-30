@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 09:40:30 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/29 22:27:10 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/30 20:10:11 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ class Fixed
 };
 
 std::ostream& operator<< (std::ostream& os, const Fixed& fixed );
+double	myPow(int num, int power);
 
 #endif
 
