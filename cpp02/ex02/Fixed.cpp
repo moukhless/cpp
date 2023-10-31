@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 09:40:44 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/30 20:09:52 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/10/31 20:09:51 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Fixed::Fixed()
 {
 	fixedPointValue = 0;
 }
-Fixed::Fixed( const Fixed& fixed )
+Fixed::Fixed(const Fixed& fixed )
 {
 	this->fixedPointValue = fixed.fixedPointValue;
 }
@@ -80,48 +80,52 @@ bool	Fixed::operator!=( const Fixed& fixed ) const
 	return (false);
 }
 
-Fixed&	Fixed::operator+( const Fixed& fixed )
+Fixed	Fixed::operator+( const Fixed& fixed )
 {
-	fixedPointValue = (toFloat() + fixed.toFloat()) * myPow(2, fractionalBits);
-	return (*this);
+	Fixed tmp = *this;
+	tmp.fixedPointValue = fixedPointValue + fixed.fixedPointValue;
+	return (tmp);
 }
-Fixed&	Fixed::operator-( const Fixed& fixed )
+Fixed	Fixed::operator-( const Fixed& fixed )
 {
-	fixedPointValue = (toFloat() - fixed.toFloat()) * myPow(2, fractionalBits);
-	return (*this);
+	Fixed tmp = *this;
+	tmp.fixedPointValue = fixedPointValue - fixed.fixedPointValue;
+	return (tmp);
 }
-Fixed&	Fixed::operator*( const Fixed& fixed )
+Fixed	Fixed::operator*( const Fixed& fixed )
 {
-	fixedPointValue = toFloat() * fixed.toFloat() * myPow(2, fractionalBits);
-	return (*this);
+	Fixed tmp = *this;
+	tmp.fixedPointValue = toFloat() * fixed.toFloat() * myPow(2, fractionalBits);
+	return (tmp);
 }
-Fixed&	Fixed::operator/( const Fixed& fixed )
+Fixed	Fixed::operator/( const Fixed& fixed )
 {
-	fixedPointValue = toFloat() / fixed.toFloat() * myPow(2, fractionalBits);
-	return (*this);
+	Fixed tmp = *this;
+	tmp.fixedPointValue = toFloat() / fixed.toFloat() * myPow(2, fractionalBits);
+	return (tmp);
 }
 
-Fixed&	Fixed::operator++( int )
+Fixed	Fixed::operator++( int )
 {
-	Fixed *tmp = new Fixed(*this);
+	Fixed tmp = *this;
 	fixedPointValue++;
-	return (*tmp);
+	return (tmp);
 }
-Fixed&	Fixed::operator++( void )
+Fixed	Fixed::operator++( void )
 {
 	fixedPointValue++;
 	return (*this);
 }
-int		Fixed::operator--( int )
+Fixed	Fixed::operator--( int )
 {
-	int	tmp = fixedPointValue;
+	Fixed tmp = *this;
 	fixedPointValue--;
 	return (tmp);
 }
-int		Fixed::operator--( void )
+Fixed	Fixed::operator--( void )
 {
 	fixedPointValue--;
-	return (fixedPointValue);
+	return (*this);
 }
 
 Fixed&	Fixed::min(Fixed& firstFixedNum, Fixed& secondFixedNum)

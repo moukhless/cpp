@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/29 09:39:50 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/31 14:11:38 by amoukhle         ###   ########.fr       */
+/*   Created: 2023/10/31 22:41:35 by amoukhle          #+#    #+#             */
+/*   Updated: 2023/10/31 23:25:40 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
-#include "Point.h"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int main( void ) {
+#include "ClapTrap.hpp"
 
-	Point a(1, 1);
-	Point b(6, 6);
-	Point c(6, 1);
-	Point point(4, 2);
+class ScavTrap : public ClapTrap {
+	
+	public:
 
-	if (bsp(a, b, c, point))
-		std::cout << "True" << std::endl;
-	else
-		std::cout << "False" << std::endl;
-		
-return 0;
-}
+		ScavTrap( void );
+		ScavTrap( std::string name);
+
+		void	attack( const std::string& target );
+		void	guardGate();
+
+		~ScavTrap( void );
+};
+
+
+#endif

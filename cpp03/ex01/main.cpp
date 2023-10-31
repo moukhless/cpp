@@ -5,25 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/29 09:39:50 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/31 14:11:38 by amoukhle         ###   ########.fr       */
+/*   Created: 2023/10/31 19:54:29 by amoukhle          #+#    #+#             */
+/*   Updated: 2023/10/31 23:29:04 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
-#include "Point.h"
+#include "ScavTrap.hpp"
 
-int main( void ) {
+int main() {
 
-	Point a(1, 1);
-	Point b(6, 6);
-	Point c(6, 1);
-	Point point(4, 2);
+	ScavTrap army("jack");
+	ScavTrap soldier("mrabti");
+	ScavTrap member;
 
-	if (bsp(a, b, c, point))
-		std::cout << "True" << std::endl;
-	else
-		std::cout << "False" << std::endl;
-		
-return 0;
+	army.attack("mrabti");
+	soldier.takeDamage(5);
+	army.attack("mrabti");
+	soldier.takeDamage(4);
+	soldier.beRepaired(10);
+	soldier.attack("jack");
+	army.takeDamage(20);
+	soldier.attack("jack");
+	army.takeDamage(20);
+	soldier.attack("jack");
+	army.takeDamage(20);
+	soldier.attack("jack");
+	soldier.attack("jack");
+	army.takeDamage(20);
+	army.takeDamage(20);
+	army.beRepaired(20);
+	army.guardGate();
+	member = army;
+	member.beRepaired(20);
+	
+	return (0);
 }

@@ -5,25 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/29 09:39:50 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/31 14:11:38 by amoukhle         ###   ########.fr       */
+/*   Created: 2023/10/31 19:54:29 by amoukhle          #+#    #+#             */
+/*   Updated: 2023/10/31 22:17:03 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
-#include "Point.h"
+#include "ClapTrap.hpp"
 
-int main( void ) {
+int main() {
 
-	Point a(1, 1);
-	Point b(6, 6);
-	Point c(6, 1);
-	Point point(4, 2);
+	ClapTrap army("jack");
+	ClapTrap soldier("mrabti");
 
-	if (bsp(a, b, c, point))
-		std::cout << "True" << std::endl;
-	else
-		std::cout << "False" << std::endl;
-		
-return 0;
+	army.attack("mrabti");
+	soldier.takeDamage(5);
+	army.attack("mrabti");
+	soldier.takeDamage(4);
+	soldier.beRepaired(10);
+	soldier.attack("jack");
+	army.takeDamage(5);
+	soldier.attack("jack");
+	army.takeDamage(5);
+	soldier.attack("jack");
+	army.takeDamage(5);
+	soldier.attack("jack");
+	army.takeDamage(5);
+	army.beRepaired(20);
+	
+	return (0);
 }

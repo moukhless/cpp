@@ -5,29 +5,29 @@
 #                                                     +:+ +:+         +:+      #
 #    By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/29 09:39:29 by amoukhle          #+#    #+#              #
-#    Updated: 2023/10/31 20:16:39 by amoukhle         ###   ########.fr        #
+#    Created: 2023/10/31 19:49:56 by amoukhle          #+#    #+#              #
+#    Updated: 2023/10/31 19:54:13 by amoukhle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp Fixed.cpp
+NAME = Aaaaand...OPEN
+SRCS = main.cpp ClapTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = fixed
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
 	c++ $(FLAGS) $(OBJS) -o $(NAME)
 
-%.o : %.cpp Fixed.hpp Fixed.h
+%.o : %.cpp ClapTrap.hpp
 	c++ $(FLAGS) -c $< -o $@
 
 clean :
-	rm -f $(OBJS)
+	rm -rf $(OBJS)
 
 fclean : clean
-	rm -f $(NAME)
+	rm -fr $(NAME)
 
 re : fclean all
 
