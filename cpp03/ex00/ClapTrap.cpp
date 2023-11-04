@@ -6,14 +6,14 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:55:43 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/10/31 22:14:24 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/03 14:44:55 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap( void ) {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default constructor called from ClapTrap" << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string name ) {
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap( std::string name ) {
 	hitPoints = 10;
 	energyPoints = 10;
 	attackDamage = 0;
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Constructor called from ClapTrap" << std::endl;
 }
 
 ClapTrap::ClapTrap( const ClapTrap& clapT ) {
@@ -30,10 +30,12 @@ ClapTrap::ClapTrap( const ClapTrap& clapT ) {
 	hitPoints = clapT.hitPoints;
 	energyPoints = clapT.energyPoints;
 	attackDamage = clapT.attackDamage;
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy constructor called ClapTrap" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=( const ClapTrap& clapT){
+	if (this == &clapT)
+		return (*this);
 	name = clapT.name;
 	hitPoints = clapT.hitPoints;
 	energyPoints = clapT.energyPoints;
@@ -70,5 +72,5 @@ void	ClapTrap::beRepaired( unsigned int amount ) {
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called from ClapTrap" << std::endl;
 }
