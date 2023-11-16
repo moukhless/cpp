@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:16:46 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/15 21:40:00 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:18:27 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class ICharacter{
 
 public:
-
 	virtual ~ICharacter( void ) {}
 	virtual std::string const & getName( void ) const = 0;
 	virtual void equip(AMateria* m) = 0;

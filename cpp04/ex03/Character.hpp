@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:24:32 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/15 21:40:55 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:26:33 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 
 #include "AMateria.hpp"
 
-class Character : public ICharacter, public AMateria{
+class Character : public ICharacter{
+
+private:
+
+	AMateria	*arr[4];
+	std::string	name;
 
 public:
 

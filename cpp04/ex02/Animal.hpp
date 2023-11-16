@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 14:39:55 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/14 21:51:22 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:15:14 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	Animal&	operator=( const Animal& animal );
 
 	virtual void	makeSound( void ) const = 0;
-	virtual std::string	getType( void ) const = 0;
+	std::string		getType( void ) const;
 
 	virtual ~Animal( void );
 };

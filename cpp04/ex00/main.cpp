@@ -6,13 +6,15 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:09:11 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/16 12:11:37 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:18:32 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include "WrongAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
 
 // i need to know why isn't work whith non-virtual destractor
 

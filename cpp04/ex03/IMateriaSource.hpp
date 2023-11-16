@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 19:42:48 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/16 12:04:51 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:18:24 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class IMateriaSource {
 
 public:
-
 	virtual ~IMateriaSource() {}
 	virtual void learnMateria(AMateria*) = 0;
 	virtual AMateria* createMateria(std::string const & type) = 0;

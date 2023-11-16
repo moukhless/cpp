@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 14:46:12 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/04 16:30:32 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:15:58 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ Cat::Cat( void ) {
 }
 
 Cat::Cat( const Cat& cat ) {
+	brain = new Brain();
 	type = cat.type;
+	*brain = *cat.brain;
 	std::cout << "Constructor called from Cat" << std::endl;
 }
 
@@ -27,6 +29,7 @@ Cat& Cat::operator=( const Cat& cat ) {
 	if (this == &cat)
 		return (*this);
 	type = cat.type;
+	*brain = *cat.brain;
 	return (*this);
 }
 
