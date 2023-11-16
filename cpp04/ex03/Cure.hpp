@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 10:16:06 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/15 11:45:12 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/16 12:04:42 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class Cure : public AMateria{
 
 public:
+
 	Cure( void );
 	Cure( const Cure& cure );
 	Cure& operator=( const Cure& cure );

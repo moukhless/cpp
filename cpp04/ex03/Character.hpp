@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 09:39:12 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/16 12:04:45 by amoukhle         ###   ########.fr       */
+/*   Created: 2023/11/15 18:24:32 by amoukhle          #+#    #+#             */
+/*   Updated: 2023/11/15 21:40:55 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-# define ICE_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
 #include "AMateria.hpp"
 
-class Ice : public AMateria{
+class Character : public ICharacter, public AMateria{
 
 public:
 
-	Ice( void );
-	Ice( const Ice& ice );
-	Ice& operator=( const Ice& ice);
+	Character( void );
+	Character( const Character& character );
+	Character( std::string const & name );
+	Character& operator=( const Character& name );
 
-	virtual AMateria* clone( void ) const;
-	void Ice::use(ICharacter& target);
+	std::string const & getName( void ) const;
+	void equip(AMateria* m);
+	void unequip(int idx);
+	void use(int idx, ICharacter& target);
+	AMateria* clone( void ) const;
 
-	~Ice( void );
+	~Character( void );
 };
 
 #endif

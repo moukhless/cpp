@@ -6,15 +6,15 @@
 #    By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 08:59:46 by amoukhle          #+#    #+#              #
-#    Updated: 2023/11/15 09:00:03 by amoukhle         ###   ########.fr        #
+#    Updated: 2023/11/16 12:02:48 by amoukhle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = Idon’tWantToSetTheWorldOnFire
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp IMateriaSource.cpp MateriaSource
 OBJS = $(SRCS:.cpp=.o)
-HERDERS = Animal.hpp Cat.hpp Dog.hpp Brain.hpp
+HERDERS = AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp
 
 all : $(NAME)
 

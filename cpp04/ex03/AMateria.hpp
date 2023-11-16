@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:00:36 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/15 14:11:00 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:20:46 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ protected:
 	std::string	type;
 	std::string	name;
 	AMateria	*arr[4];
-	AMateria	*tmpArr[2];
 
 public:
 

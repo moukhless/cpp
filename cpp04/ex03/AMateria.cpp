@@ -6,13 +6,14 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:09:09 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/15 14:09:29 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/16 12:04:03 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
 AMateria::AMateria( void ) {
+	type = "default";
 }
 AMateria::AMateria( const AMateria& amateria ) {
 	type = amateria.type;
@@ -32,9 +33,9 @@ std::string const & AMateria::getType( void ) const {
 }
 void AMateria::use(ICharacter& target) {
 	if (type == "cure")
-		std::cout << "* heals " << target.name <<"’s wounds *" << std::endl;
+		std::cout << "* heals " << target.getName() <<"’s wounds *" << std::endl;
 	else
-		std::cout << "Ice: \"* shoots an ice bolt at " << target.name << " *\"" << std::endl;
+		std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
 
 AMateria::~AMateria( void ) {
