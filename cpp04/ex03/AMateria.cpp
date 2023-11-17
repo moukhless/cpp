@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:09:09 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/16 12:04:03 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/17 10:53:26 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ std::string const & AMateria::getType( void ) const {
 void AMateria::use(ICharacter& target) {
 	if (type == "cure")
 		std::cout << "* heals " << target.getName() <<"’s wounds *" << std::endl;
-	else
+	else if (type == "ice")
 		std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
 

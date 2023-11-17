@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:24:32 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/16 14:26:33 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/17 15:40:55 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ private:
 
 	AMateria	*arr[4];
 	std::string	name;
+	AMateria	*garcoll[1024];
 
 public:
 
@@ -29,11 +30,10 @@ public:
 	Character( std::string const & name );
 	Character& operator=( const Character& name );
 
-	std::string const & getName( void ) const;
+	std::string const & getName() const;
 	void equip(AMateria* m);
 	void unequip(int idx);
 	void use(int idx, ICharacter& target);
-	AMateria* clone( void ) const;
 
 	~Character( void );
 };

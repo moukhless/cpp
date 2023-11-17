@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:39:12 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/16 12:04:45 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/17 10:23:58 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	Ice& operator=( const Ice& ice);
 
 	virtual AMateria* clone( void ) const;
-	void Ice::use(ICharacter& target);
+	void use(ICharacter& target);
 
 	~Ice( void );
 };

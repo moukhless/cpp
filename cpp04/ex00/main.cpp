@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:09:11 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/16 15:18:32 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/17 15:03:30 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongCat.hpp"
-
-// i need to know why isn't work whith non-virtual destractor
 
 int main()
 {

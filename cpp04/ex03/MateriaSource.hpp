@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 19:54:31 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/16 19:54:47 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/17 14:52:57 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ public:
 	MateriaSource( void );
 	MateriaSource( const MateriaSource& materiaSource );
 	MateriaSource& operator=( const MateriaSource& materiaSource );
+	~MateriaSource( void );
+
 	AMateria* createMateria( std::string const & type );
 	void learnMateria( AMateria* );
-	~MateriaSource( void );
 };
 
 #endif
