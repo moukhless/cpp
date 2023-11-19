@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:26:10 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/17 15:49:49 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/19 15:33:58 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ Character::Character( const Character& character ) {
 		else
 			arr[i] = NULL;
 	}
+	for(int i = 0; i < 4; i++)
+		garcoll[i] = NULL;
 }
 Character::Character( std::string const & name ) {
 	this->name = name;
@@ -61,7 +63,7 @@ void Character::equip(AMateria* m) {
 	int	i = 0;
 	while (arr[i] != NULL && i < 4)
 		i++;
-	if (i < 4)
+	if (i < 4 && m)
 		arr[i] = m;
 }
 

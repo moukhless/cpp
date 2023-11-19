@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:47:54 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/17 15:55:16 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/19 15:28:17 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ me->use(1, *bob);
 delete bob;
 delete me;
 delete src;
-return 0;
+
 }

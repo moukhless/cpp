@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 19:56:17 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/17 15:08:53 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/19 15:29:36 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ MateriaSource::~MateriaSource() {
 MateriaSource::MateriaSource(const MateriaSource& copy) {
 	for (int i = 0; i < 4; i++) {
 		if (copy.arr[i]) {
-			if (arr[i])
-				delete arr[i];
 			arr[i] = copy.arr[i]->clone();
 		}
 		else
@@ -37,8 +35,7 @@ MateriaSource::MateriaSource(const MateriaSource& copy) {
 MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
 	if (this != &obj) {
 		for (int i = 0; i < 4; i++) {
-			if (obj.arr[i])
-			{
+			if (obj.arr[i]) {
 				if (arr[i])
 					delete arr[i];
 				arr[i] = obj.arr[i]->clone();
@@ -54,9 +51,10 @@ void MateriaSource::learnMateria(AMateria* aMateria) {
 		int	i = 0;
 		while (arr[i] != NULL && i < 4)
 			i++;
-		if (i < 4) {
+		if (i < 4 && aMateria)
 			arr[i] = aMateria;
-		}
+		else
+			delete aMateria;
 }
 
 AMateria* MateriaSource::createMateria(std::string  const& type) {

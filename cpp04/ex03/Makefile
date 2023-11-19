@@ -6,15 +6,15 @@
 #    By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 08:59:46 by amoukhle          #+#    #+#              #
-#    Updated: 2023/11/17 14:54:15 by amoukhle         ###   ########.fr        #
+#    Updated: 2023/11/19 21:40:37 by amoukhle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = interfaceAndRecap
-SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
+SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp WrongAnimal.cpp WrongCat.cpp
 OBJS = $(SRCS:.cpp=.o)
-HERDERS = AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp
+HERDERS = AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp WrongAnimal.hpp WrongCat.hpp
 
 all : $(NAME)
 

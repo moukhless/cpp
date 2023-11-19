@@ -6,14 +6,12 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:16:46 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/17 15:09:53 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/18 13:59:34 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
-
-#include "AMateria.hpp"
 
 class AMateria;
 

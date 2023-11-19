@@ -6,23 +6,23 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 14:46:12 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/16 19:09:07 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/18 17:46:17 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 Cat::Cat( void ) {
+	std::cout << "Default constructor called from Cat" << std::endl;
 	type = "Cat";
 	brain = new Brain();
-	std::cout << "Default constructor called from Cat" << std::endl;
 }
 
 Cat::Cat( const Cat& cat ) {
+	std::cout << "Constructor called from Cat" << std::endl;
 	brain = new Brain();
 	type = cat.type;
 	*brain = *cat.brain;
-	std::cout << "Constructor called from Cat" << std::endl;
 }
 
 Cat& Cat::operator=( const Cat& cat ) {

@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 15:09:11 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/18 17:45:55 by amoukhle         ###   ########.fr       */
+/*   Created: 2023/11/16 14:10:42 by amoukhle          #+#    #+#             */
+/*   Updated: 2023/11/16 15:11:10 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-int main() {
+#include "WrongAnimal.hpp"
 
-int	size = 4;
-const Animal *meta[size];
+class WrongCat : public WrongAnimal{
 
-for (int i = 0; i < size; i++)
-{
-	if (i < size / 2)
-		meta[i] = new Dog();
-	else
-		meta[i] = new Cat();
-}
+public:
 
-for (int i = 0; i < size; i++)
-	meta[i]->makeSound();
+	WrongCat( void );
+	WrongCat( const WrongCat& wrongCat );
+	WrongCat& operator=( const WrongCat& wrongCat );
 
-for (int i = 0; i < size; i++)
-	delete meta[i];
+	void	makeSound( void ) const;
+	std::string	getType( void );
+	
+	~WrongCat( void );
+};
 
-return 0;
-}
+#endif

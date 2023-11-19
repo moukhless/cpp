@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:00:36 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/11/17 14:40:00 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/11/18 14:10:35 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 #include <iostream>
 #include "ICharacter.hpp"
-
-class Icharacter;
 
 class AMateria {
 
