@@ -36,7 +36,7 @@ public:
 			const char* what() const throw();
 	};
 
-	void	signForm(Form f);
+	void	signForm(Form& f);
 
 };
 

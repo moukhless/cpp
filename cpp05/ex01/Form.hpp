@@ -14,7 +14,7 @@ class Form {
 
 	public:
 		Form();
-		Form( std::string name, bool sign, int gradeToSign, int gradeToExec );
+		Form( std::string name, int gradeToSign, int gradeToExec );
 		~Form();
 		Form(const Form& copy);
 		Form& operator=(const Form& obj);
@@ -33,7 +33,7 @@ class Form {
 		int			getGradeToSign() const;
 		int			getGradeToExec() const;
 
-		void	beSigned(Bureaucrat b);
+		void	beSigned(Bureaucrat& b);
 
 };
 

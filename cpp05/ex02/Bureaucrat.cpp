@@ -6,9 +6,9 @@ Bureaucrat::Bureaucrat() : name("default"), grade(150) {
 Bureaucrat::Bureaucrat( std::string name, int grade ) : name(name){
 	this->grade = grade;
 	if (grade > 150)
-		throw Bureaucrat::GradeTooLowException();
+		throw GradeTooLowException();
 	else if (grade < 1)
-		throw Bureaucrat::GradeTooHighException();
+		throw GradeTooHighException();
 }
 
 Bureaucrat::~Bureaucrat() {
@@ -63,8 +63,15 @@ void	Bureaucrat::signForm(AForm const & form) {
 }
 
 void	Bureaucrat::executeForm(AForm const & form) {
-	if (form.getGradeToExec())
+	if (grade <= form.getGradeToExec()) {
+		try {
+			form.execute(*this);
+		}
+		catch (const std::exception& e) {
+			std::cout << name << " couldn't execute " << form.getName() << " because the grade is lowest then " << form.getGradeToExec() << std::endl;
+		}
 		std::cout << name << " executed " << form.getName() << std::endl;
+	}
 	else
-		std::cout << name << " coundn't execute " << form.getName() << " because the grade is lowest then " << form.getGradeToExec() << std::endl;
+		std::cout << name << " couldn't execute " << form.getName() << " because the grade is lowest then " << form.getGradeToExec() << std::endl;
 }

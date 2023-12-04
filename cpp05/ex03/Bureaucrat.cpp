@@ -63,8 +63,15 @@ void	Bureaucrat::signForm(AForm const & form) {
 }
 
 void	Bureaucrat::executeForm(AForm const & form) {
-	if (form.getGradeToExec())
+	if (grade <= form.getGradeToExec()) {
+		try {
+			form.execute(*this);
+		}
+		catch (const std::exception& e) {
+			std::cout << name << " couldn't execute " << form.getName() << " because the grade is lowest then " << form.getGradeToExec() << std::endl;
+		}
 		std::cout << name << " executed " << form.getName() << std::endl;
+	}
 	else
-		std::cout << name << " coundn't execute " << form.getName() << " because the grade is lowest then " << form.getGradeToExec() << std::endl;
+		std::cout << name << " couldn't execute " << form.getName() << " because the grade is lowest then " << form.getGradeToExec() << std::endl;
 }

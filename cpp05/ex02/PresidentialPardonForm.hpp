@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 22:41:46 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/12/02 10:58:40 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:59:23 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class PresidentialPardonForm : public AForm{
 	public:
 		PresidentialPardonForm();
 		PresidentialPardonForm( std::string target );
-		PresidentialPardonForm( std::string target , std::string name, bool sign, int gradeToSign, int gradeToExec );
 		~PresidentialPardonForm();
 		PresidentialPardonForm(const  PresidentialPardonForm& copy);
 		PresidentialPardonForm& operator=(const  PresidentialPardonForm& obj);

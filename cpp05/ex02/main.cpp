@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:38:52 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/12/02 11:06:40 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:57:37 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,8 @@ int main()
 		Bureaucrat d("omar", 5);
 		std::cout << d.getName() << std::endl;
 		std::cout << d.getGrade() << std::endl;
-		ShrubberyForm.execute(d);
 		d.executeForm(ShrubberyForm);
-		RobotomyForm.execute(d);
 		d.executeForm(RobotomyForm);
-		PresidentialForm.execute(d);
 		d.executeForm(PresidentialForm);
 	}
 	catch(const std::exception& e) {

@@ -1,12 +1,12 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm( "default_Shrubberyform", false, 145, 137 ), target("default_target") {
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm( "default_Shrubberyform", 145, 137 ), target("default_target") {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string target , std::string name, bool sign, int gradeToSign, int gradeToExec ) : AForm( name, sign, gradeToSign, gradeToExec ), target(target) {
+ShrubberyCreationForm::ShrubberyCreationForm( std::string target , std::string name, int gradeToSign, int gradeToExec ) : AForm( name, gradeToSign, gradeToExec ), target(target) {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : AForm( "default_Shrubberyform", false, 145, 137 ) {
+ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : AForm( "default_Shrubberyform", 145, 137 ) {
 	this->target = target;
 }
 

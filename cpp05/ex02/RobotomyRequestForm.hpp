@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 22:41:46 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/12/02 10:58:43 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:59:15 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
+#include <time.h>
 
 class RobotomyRequestForm : public AForm{
 	private:
@@ -21,7 +22,6 @@ class RobotomyRequestForm : public AForm{
 	public:
 		RobotomyRequestForm();
 		RobotomyRequestForm( std::string target );
-		RobotomyRequestForm( std::string target , std::string name, bool sign, int gradeToSign, int gradeToExec );
 		~RobotomyRequestForm();
 		RobotomyRequestForm(const  RobotomyRequestForm& copy);
 		RobotomyRequestForm& operator=(const  RobotomyRequestForm& obj);

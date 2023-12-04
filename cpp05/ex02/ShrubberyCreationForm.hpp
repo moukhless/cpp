@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 22:41:46 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/12/02 10:41:31 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:59:09 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class  ShrubberyCreationForm : public AForm{
 	public:
 		ShrubberyCreationForm();
 		ShrubberyCreationForm( std::string target );
-		ShrubberyCreationForm( std::string target , std::string name, bool sign, int gradeToSign, int gradeToExec );
 		~ShrubberyCreationForm();
 		ShrubberyCreationForm(const  ShrubberyCreationForm& copy);
 		ShrubberyCreationForm& operator=(const  ShrubberyCreationForm& obj);

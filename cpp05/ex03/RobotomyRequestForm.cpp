@@ -1,12 +1,12 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm( "default_Robotomyform", false, 72, 45 ), target("default_target") {
+RobotomyRequestForm::RobotomyRequestForm() : AForm( "default_Robotomyform", 72, 45 ), target("default_target") {
 }
 
-RobotomyRequestForm::RobotomyRequestForm( std::string target , std::string name, bool sign, int gradeToSign, int gradeToExec ) : AForm( name, sign, gradeToSign, gradeToExec ), target(target) {
+RobotomyRequestForm::RobotomyRequestForm( std::string target , std::string name, int gradeToSign, int gradeToExec ) : AForm( name, gradeToSign, gradeToExec ), target(target) {
 }
 
-RobotomyRequestForm::RobotomyRequestForm( std::string target ) : AForm( "default_Robotomyform", false, 72, 45 ) {
+RobotomyRequestForm::RobotomyRequestForm( std::string target ) : AForm( "default_Robotomyform", 72, 45 ) {
 	this->target = target;
 }
 
