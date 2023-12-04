@@ -2,25 +2,17 @@
 
 Form::Form() : name("default"), gradeToSign(10), gradeToExec(20) {
 	sign = false;
-	if (gradeToExec > 150)
+	if (gradeToExec > 150 || gradeToSign > 150)
 		throw Form::GradeTooLowException();
-	else if (gradeToExec < 1)
-		throw Form::GradeTooHighException();
-	if (gradeToSign > 150)
-		throw Form::GradeTooLowException();
-	else if (gradeToSign < 1)
+	else if (gradeToExec < 1 || gradeToSign < 1)
 		throw Form::GradeTooHighException();
 }
 
 Form::Form( std::string name, bool sign, int gradeToSign, int gradeToExec ) : name(name), gradeToSign(gradeToSign), gradeToExec(gradeToExec){
 	this->sign = sign;
-	if (gradeToExec > 150)
+	if (gradeToExec > 150 || gradeToSign > 150)
 		throw Form::GradeTooLowException();
-	else if (gradeToExec < 1)
-		throw Form::GradeTooHighException();
-	if (gradeToSign > 150)
-		throw Form::GradeTooLowException();
-	else if (gradeToSign < 1)
+	else if (gradeToExec < 1 || gradeToSign < 1)
 		throw Form::GradeTooHighException();
 }
 
@@ -28,7 +20,6 @@ Form::~Form() {
 }
 
 Form::Form(const Form& copy) : name(copy.name), gradeToSign(copy.gradeToSign), gradeToExec(copy.gradeToExec) {
-	sign = copy.sign;
 	*this = copy;
 }
 
@@ -74,4 +65,6 @@ std::ostream& operator<<(std::ostream& os, const Form& obj) {
 void	Form::beSigned(Bureaucrat b) {
 	if (b.getGrade() <= gradeToSign)
 		sign = true;
+	else
+		throw GradeTooLowException();
 }
