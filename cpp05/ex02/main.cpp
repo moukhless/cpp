@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:38:52 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/12/04 16:57:37 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/12/05 14:32:12 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,10 @@ int main()
 
 		std::cout << b.getName() << std::endl;
 		std::cout << b.getGrade() << std::endl;
-		ShrubberyForm.beSigned(b);
 		b.signForm(ShrubberyForm);
-		RobotomyForm.beSigned(b);
 		b.signForm(RobotomyForm);
-		PresidentialForm.beSigned(b);
 		b.signForm(PresidentialForm);
-		Bureaucrat d("omar", 5);
+		Bureaucrat d("omar", 50);
 		std::cout << d.getName() << std::endl;
 		std::cout << d.getGrade() << std::endl;
 		d.executeForm(ShrubberyForm);
@@ -39,7 +36,7 @@ int main()
 		d.executeForm(PresidentialForm);
 	}
 	catch(const std::exception& e) {
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	}
 	
 	return (0);

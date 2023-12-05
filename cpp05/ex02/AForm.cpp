@@ -7,9 +7,9 @@ AForm::AForm() : name("default_form"), gradeToSign(10), gradeToExec(20) {
 AForm::AForm( std::string name, int gradeToSign, int gradeToExec ) : name(name), gradeToSign(gradeToSign), gradeToExec(gradeToExec){
 	this->sign = false;
 	if (gradeToExec > 150 || gradeToSign > 150)
-		throw AForm::GradeTooLowException();
+		throw GradeTooLowException();
 	else if (gradeToExec < 1 || gradeToSign < 1)
-		throw AForm::GradeTooHighException();
+		throw GradeTooHighException();
 }
 
 AForm::~AForm() {

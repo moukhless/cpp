@@ -37,7 +37,7 @@ public:
 			const char* what() const throw();
 	};
 
-	void	signForm(AForm const & form);
+	void	signForm(AForm & form);
 	void	executeForm(AForm const & form);
 
 };

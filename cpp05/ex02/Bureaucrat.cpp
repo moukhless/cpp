@@ -55,23 +55,27 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) {
 	return (os);
 }
 
-void	Bureaucrat::signForm(AForm const & form) {
-	if (form.getSign())
+void	Bureaucrat::signForm(AForm & form) {
+	try {
+		form.beSigned(*this);
+		if (form.getSign())
 		std::cout << name << " signed " << form.getName() << std::endl;
 	else
 		std::cout << name << " coundn't sign " << form.getName() << " because the grade is lowest then " << form.getGradeToSign() << std::endl;
+	}
+	catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
+		std::cout << name << " coundn't sign " << form.getName() << " because the grade is lowest then " << form.getGradeToSign() << std::endl;
+	}
 }
 
 void	Bureaucrat::executeForm(AForm const & form) {
-	if (grade <= form.getGradeToExec()) {
-		try {
-			form.execute(*this);
-		}
-		catch (const std::exception& e) {
-			std::cout << name << " couldn't execute " << form.getName() << " because the grade is lowest then " << form.getGradeToExec() << std::endl;
-		}
+	try {
+		form.execute(*this);
 		std::cout << name << " executed " << form.getName() << std::endl;
 	}
-	else
+	catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
 		std::cout << name << " couldn't execute " << form.getName() << " because the grade is lowest then " << form.getGradeToExec() << std::endl;
+	}
 }

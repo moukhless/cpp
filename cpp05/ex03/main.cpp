@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:38:52 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/12/04 16:58:58 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/12/05 14:39:36 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,12 @@ int main()
 
 		std::cout << b.getName() << std::endl;
 		std::cout << b.getGrade() << std::endl;
-		if (scf) {
-			scf->beSigned(b);
+		if (scf)
 			b.signForm(*scf);
-		}
-		if (rrf) {
-			rrf->beSigned(b);
+		if (rrf)
 			b.signForm(*rrf);
-		}
-		if (ppf) {
-			ppf->beSigned(b);
+		if (ppf)
 			b.signForm(*ppf);
-		}
 		Bureaucrat d("omar", 5);
 		std::cout << d.getName() << std::endl;
 		std::cout << d.getGrade() << std::endl;

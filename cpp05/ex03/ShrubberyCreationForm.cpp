@@ -24,10 +24,8 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
-	if (executor.getGrade() > 150 || !getSign() || executor.getGrade() > 137)
+	if (!getSign() || executor.getGrade() > 137)
 		throw GradeTooLowException();
-	if (executor.getGrade() < 1)
-		throw GradeTooHighException();
 	std::ofstream	file;
 	std::string		fileName = target + "_shrubbery";
 	file.open(fileName);
@@ -35,9 +33,29 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 		std::cout << "Unable to open " << fileName << " !!" << std::endl;
 		exit (1);
 	}
-	file << "   ^   \n";
-	file << "  ^^^  \n";
-	file << " ^^^^^ \n";
-	file << "^^^^^^^\n";
+	file << "                      ___" << std::endl;
+	file << "                _,-\'\"\"   \"\"\"\"`--." << std::endl;
+	file << "             ,-'          __,,-- " << std::endl;
+	file << "           ,'    __,--\"\"\"\"dF      )" << std::endl;
+	file << "          /   .-\"Hb_,--\"\"dF      " << std::endl;
+	file << "        ,'       _Hb ___dF\"-._,-\'" << std::endl;
+	file << "      ,'      _,-\"\"\"\"   \"\"--..__" << std::endl;
+	file << "     (     ,-'                  `." << std::endl;
+	file << "      `._,'     _   _             ;" << std::endl;
+	file << "       ,\'     ,\' `-\'Hb-.___..._,-\'" << std::endl;
+	file << "       \\    ,\'\"Hb.-\'HH`-.dHF\"" << std::endl;
+	file << "        `--\'   \"Hb  HH  dF\"" << std::endl;
+	file << "                \"Hb HH dF" << std::endl;
+	file << "                 \"HbHHdF" << std::endl;
+	file << "                  |HHHF" << std::endl;
+	file << "                  |HHH|" << std::endl;
+	file << "                  |HHH|" << std::endl;
+	file << "                  |HHH|" << std::endl;
+	file << "                  |HHH|" << std::endl;
+	file << "                  dHHHb" << std::endl;
+	file << "                .dFd|bHb.               o" << std::endl;
+	file << "      o       .dHFdH|HbTHb.          o /" << std::endl;
+	file << "\\  Y  |  \\__,dHHFdHH|HHhoHHb.__Krogg  Y" << std::endl;
+	file << "##########################################" << std::endl;
 	file.close();
 }

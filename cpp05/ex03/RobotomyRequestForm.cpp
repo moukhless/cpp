@@ -24,14 +24,16 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 }
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
-	if (executor.getGrade() > 150 || !getSign() || executor.getGrade() > 45) {
+	if (!getSign() || executor.getGrade() > 45) {
 		std::cout << target + " failed to robotimaze" << std::endl;
 		throw GradeTooLowException();
 	}
-	if (executor.getGrade() < 1) {
-		std::cout << target + " failed to robotimaze" << std::endl;
-		throw GradeTooHighException();
+	std::srand(time(NULL));
+	int rnum = std::rand();
+	if (rnum % 2 != 0) {
+		std::cout << "Drrrrrrrrrrrr..." << std::endl;
+		std::cout << target + " has been robotomized." << std::endl;
 	}
-	std::cout << "Drrrrrrrrrrrr..." << std::endl;
-	std::cout << target + " has been robotomized successfully 50% of the time." << std::endl;
+	else
+		std::cout << target + " failed to robotimaze." << std::endl;
 }
