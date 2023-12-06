@@ -1,9 +1,9 @@
 C = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = 
+SRCS = main.cpp ScalarConverter.cpp
 OBJS = $(SRCS:.cpp=.o)
-HEADER = 
-Name = a.out
+HEADER = ScalarConverter.hpp
+Name = convert
 all : $(Name)
 
 $(Name) : $(OBJS)
