@@ -3,10 +3,7 @@
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm( "default_Shrubberyform", 145, 137 ), target("default_target") {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string target , std::string name, int gradeToSign, int gradeToExec ) : AForm( name, gradeToSign, gradeToExec ), target(target) {
-}
-
-ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : AForm( "default_Shrubberyform", 145, 137 ) {
+ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : AForm( target, 145, 137 ) {
 	this->target = target;
 }
 
@@ -24,8 +21,10 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
-	if (!getSign() || executor.getGrade() > 137)
+	if (executor.getGrade() > 137)
 		throw GradeTooLowException();
+	if (!getSign())
+		throw IsNotSigned();
 	std::ofstream	file;
 	std::string		fileName = target + "_shrubbery";
 	file.open(fileName);

@@ -49,12 +49,16 @@ const char* AForm::GradeTooLowException::what() const throw() {
 	return("The grade is too low");
 }
 
+const char* AForm::IsNotSigned::what() const throw() {
+	return("The AForm is not signed");
+}
+
 std::ostream& operator<<(std::ostream& os, const AForm& obj) {
-	os << obj.getName() << ", AForm grade to sign it" << obj.getGradeToSign() << ", AForm grade to execute it" << obj.getGradeToExec();
+	os << obj.getName() << ", AForm grade to sign it is " << obj.getGradeToSign() << ", AForm grade to execute it is " << obj.getGradeToExec();
 	if (obj.getSign())
-		os << "the Aform is signed" << std::endl;
+		os << " the Aform is signed" << std::endl;
 	else
-		os << "the Aform is not signed" << std::endl;
+		os << " the Aform is not signed" << std::endl;
 	return (os);
 }
 

@@ -27,7 +27,7 @@ void ScalarConverter::convert(std::string str) {
 			if (num > 127 || num < -128)
 				std::cout << "char: " << "impossible" << std::endl;
 			else if (num >= 32 && num <= 126)
-				std::cout << "char: '" << (char)num << "'" <<std::endl;
+				std::cout << "char: '" << static_cast<char>(num) << "'" <<std::endl;
 			else
 				std::cout << "char: " << "Non displayable" << std::endl;
 			std::cout << "int: " << num << std::endl;

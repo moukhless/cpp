@@ -27,6 +27,10 @@ class AForm {
 			public:
 				const char* what() const throw();
 		};
+		class IsNotSigned : public std::exception{
+			public:
+				const char* what() const throw();
+		};
 
 		std::string	getName() const;
 		bool		getSign() const;
@@ -37,6 +41,6 @@ class AForm {
 		virtual void	execute(Bureaucrat const & executor) const = 0;
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
+std::ostream& operator<<(std::ostream& os, const AForm& obj);
 
 #endif

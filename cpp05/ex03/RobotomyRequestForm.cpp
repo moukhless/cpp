@@ -3,10 +3,7 @@
 RobotomyRequestForm::RobotomyRequestForm() : AForm( "default_Robotomyform", 72, 45 ), target("default_target") {
 }
 
-RobotomyRequestForm::RobotomyRequestForm( std::string target , std::string name, int gradeToSign, int gradeToExec ) : AForm( name, gradeToSign, gradeToExec ), target(target) {
-}
-
-RobotomyRequestForm::RobotomyRequestForm( std::string target ) : AForm( "default_Robotomyform", 72, 45 ) {
+RobotomyRequestForm::RobotomyRequestForm( std::string target ) : AForm( target, 72, 45 ) {
 	this->target = target;
 }
 
@@ -24,9 +21,13 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 }
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
-	if (!getSign() || executor.getGrade() > 45) {
-		std::cout << target + " failed to robotimaze" << std::endl;
+	if (executor.getGrade() > 45) {
+		std::cout << target + " failed to robotimaze." << std::endl;
 		throw GradeTooLowException();
+	}
+	if (!getSign()) {
+		std::cout << target + " failed to robotimaze." << std::endl;
+		throw IsNotSigned();
 	}
 	std::srand(time(NULL));
 	int rnum = std::rand();

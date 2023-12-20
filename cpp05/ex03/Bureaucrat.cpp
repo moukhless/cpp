@@ -6,9 +6,9 @@ Bureaucrat::Bureaucrat() : name("default"), grade(150) {
 Bureaucrat::Bureaucrat( std::string name, int grade ) : name(name){
 	this->grade = grade;
 	if (grade > 150)
-		throw Bureaucrat::GradeTooLowException();
+		throw GradeTooLowException();
 	else if (grade < 1)
-		throw Bureaucrat::GradeTooHighException();
+		throw GradeTooHighException();
 }
 
 Bureaucrat::~Bureaucrat() {
@@ -59,9 +59,7 @@ void	Bureaucrat::signForm(AForm & form) {
 	try {
 		form.beSigned(*this);
 		if (form.getSign())
-		std::cout << name << " signed " << form.getName() << std::endl;
-	else
-		std::cout << name << " coundn't sign " << form.getName() << " because the grade is lowest then " << form.getGradeToSign() << std::endl;
+			std::cout << name << " signed " << form.getName() << std::endl;
 	}
 	catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
@@ -73,6 +71,10 @@ void	Bureaucrat::executeForm(AForm const & form) {
 	try {
 		form.execute(*this);
 		std::cout << name << " executed " << form.getName() << std::endl;
+	}
+	catch (const AForm::IsNotSigned& e) {
+		std::cerr << e.what() << std::endl;
+		std::cout << name << " couldn't execute " << form.getName() << " because the form is not signed" << std::endl;
 	}
 	catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;

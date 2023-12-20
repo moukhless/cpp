@@ -37,6 +37,6 @@ class Form {
 
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
+std::ostream& operator<<(std::ostream& os, const Form& obj);
 
 #endif

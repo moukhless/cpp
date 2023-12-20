@@ -6,7 +6,7 @@
 /*   By: amoukhle <amoukhle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:38:52 by amoukhle          #+#    #+#             */
-/*   Updated: 2023/12/05 14:39:36 by amoukhle         ###   ########.fr       */
+/*   Updated: 2023/12/20 09:32:18 by amoukhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,11 @@ int main()
 	try {
 		Bureaucrat b("abdellah", 1);
 		Intern someRandomIntern;
-		AForm* scf;
-		AForm* rrf;
-		AForm* ppf;
-		scf = someRandomIntern.makeForm("shrubbery creation", "shrubbery");
-		rrf = someRandomIntern.makeForm("robotomy request", "robotomy");
-		ppf = someRandomIntern.makeForm("presidential pardon", "presidential");
+		AForm* scf = someRandomIntern.makeForm("shrubbery creation", "shrubbery");
+		AForm* rrf = someRandomIntern.makeForm("robotomy request", "robotomy");
+		AForm* ppf = someRandomIntern.makeForm("presidential pardon", "presidential");
 
-		std::cout << b.getName() << std::endl;
-		std::cout << b.getGrade() << std::endl;
+		std::cout << b;
 		if (scf)
 			b.signForm(*scf);
 		if (rrf)
@@ -37,8 +33,7 @@ int main()
 		if (ppf)
 			b.signForm(*ppf);
 		Bureaucrat d("omar", 5);
-		std::cout << d.getName() << std::endl;
-		std::cout << d.getGrade() << std::endl;
+		std::cout << d;
 		if (scf)
 			d.executeForm(*scf);
 		if (rrf)
@@ -50,8 +45,7 @@ int main()
 		delete ppf;
 	}
 	catch(const std::exception& e) {
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	}
-	
 	return (0);
 }
