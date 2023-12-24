@@ -17,38 +17,77 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& obj) {
 }
 
 void ScalarConverter::convert(std::string str) {
-	try {
-		long num = std::stod(str);
-		if (num > std::numeric_limits<int>::max() || num < std::numeric_limits<int>::min()) {
-			std::cout << "char: " << "impossible" << std::endl;
-			std::cout << "int: " << "impossible" << std::endl;
+	char		c;
+	long int	num;
+	float		numf;
+	double		numd;
+	char		*endptr;
+	std::string	getType;
+
+	if (str.length() == 1) {
+		c = str[0];
+		getType = "char";
+	}
+	else if (str.find(".") != std::string::npos || str == "nanf" || str == "-inff" || str == "+inff" || str == "inff" || str == "nan" ||str == "-inf" || str == "+inf" || str == "inf")
+	{
+		if (str == "nan" || str == "-inf" || str == "+inf" || str == "inf" || str[str.length() - 1] != 'f') {
+			numd = std::strtod(str.c_str(), &endptr);
+			getType = "double";
 		}
 		else {
-			if (num > 127 || num < -128)
-				std::cout << "char: " << "impossible" << std::endl;
-			else if (num >= 32 && num <= 126)
-				std::cout << "char: '" << static_cast<char>(num) << "'" <<std::endl;
-			else
-				std::cout << "char: " << "Non displayable" << std::endl;
-			std::cout << "int: " << num << std::endl;
+			numf = std::strtof(str.c_str(), &endptr);
+			getType = "float";
 		}
 	}
-	catch (const std::exception& e) {
-		std::cout << "char: " << "impossible" << std::endl;
-		std::cout << "int: " << "impossible" << std::endl;
+	else {
+		num = std::strtol(str.c_str(), &endptr, 10);
+		getType = "int";
 	}
-	try {
-		float numf = std::stof(str);
-		std::cout << "float: " << std::fixed << std::setprecision(1) << numf << "f" << std::endl;
+	if (getType != "int") {
+		num = std::strtod(str.c_str(), &endptr);
+		if (getType == "char")
+			num = c;
 	}
-	catch (const std::exception& e) {
-		std::cout << "float: " << "impossible" << std::endl;
+	if (getType != "float") {
+		numf = std::strtof(str.c_str(), &endptr);
+		if (getType == "char")
+			numf = c;
 	}
-	try {
-		double numd = std::stod(str);
-		std::cout << "double: " << numd << std::endl;
+	if (getType != "double") {
+		numd = std::strtod(str.c_str(), &endptr);
+		if (getType == "char")
+			numd = c;
 	}
-	catch(const std::exception& e){
-		std::cout << "double: " << "impossible" << std::endl;
+	if (getType != "char")
+		c = static_cast<char>(num);
+
+	std::cout << "char: ";
+	if (num >= std::numeric_limits<char>::min() && num <= std::numeric_limits<char>::max()) {
+		if (std::isprint(c))
+			std::cout << "'" << c << "'" << std::endl;
+		else
+			std::cout << "Non displayable" << std::endl;
 	}
+	else
+		std::cout << "impossible" << std::endl;
+	std::cout << "int: ";
+	if (num >= std::numeric_limits<int>::min() && num <= std::numeric_limits<int>::max()) {
+		std::cout <<static_cast<int>(num) << std::endl;
+	}
+	else
+		std::cout << "impossible" << std::endl;
+	std::cout << "float: ";
+	if (numf != numf || numf == std::numeric_limits<float>::infinity() || numf == -std::numeric_limits<float>::infinity() || (numf >= -std::numeric_limits<float>::max() && numf <= std::numeric_limits<float>::max())) {
+		std::cout << std::fixed << std::setprecision(1) << numf << "f" << std::endl;
+	}
+	else
+		std::cout << "impossible" << std::endl;
+	std::cout << "double: ";
+	if (numd != numd || numd == std::numeric_limits<double>::infinity() || numd == -std::numeric_limits<double>::infinity() || (numd >= -std::numeric_limits<double>::max() && numd <= std::numeric_limits<double>::max())) {
+		std::cout << std::fixed << std::setprecision(1) << numd << std::endl;
+	}
+	else if (numd < std::numeric_limits<double>::min() && numd > std::numeric_limits<double>::max())
+		std::cout << "possible2" << std::endl;
+	else
+		std::cout << "impossible" << std::endl;
 }
