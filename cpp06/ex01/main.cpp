@@ -6,6 +6,6 @@ int main() {
 
 	uintptr_t uintptrValue = Serializer::serialize(myPointer);
 	Data *newPointer = Serializer::deserialize(uintptrValue);
-	std::cout << "uintptrValue: " << uintptrValue << std::endl;
+	std::cout << "myPointer: " << myPointer << std::endl;
 	std::cout << "newPointer: " << newPointer << std::endl;
 }

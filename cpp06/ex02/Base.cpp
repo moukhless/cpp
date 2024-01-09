@@ -28,12 +28,15 @@ Base * generate(void) {
 void identify(Base* p) {
 	A* objectA = dynamic_cast<A*>(p);
 	B* objectB = dynamic_cast<B*>(p);
+	C* objectC = dynamic_cast<C*>(p);
 	if (objectA)
 		std::cout << "A" << std::endl;
 	else if (objectB)
 		std::cout << "B" << std::endl;
-	else
+	else if (objectC)
 		std::cout << "C" << std::endl;
+	else
+		std::cout << "Undefined type!!" << std::endl;
 }
 
 void identify(Base& p) {
@@ -49,9 +52,15 @@ void identify(Base& p) {
 			std::cout << "B" << std::endl;
 		}
 		catch (const std::bad_cast& e) {
-			C objectC;
-			objectC = dynamic_cast<C&>(p);
-			std::cout << "C" << std::endl;
+			try {
+				C objectC;
+				objectC = dynamic_cast<C&>(p);
+				std::cout << "C" << std::endl;
+			}
+			catch (const std::bad_cast& e) {
+				std::cout << "Undefined type!!" << std::endl;
+			}
+			
 		}
 	}
 }
