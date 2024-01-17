@@ -15,9 +15,6 @@ template <typename T> class Array {
 		Array(unsigned int n) {
 			if (n > 0) {
 				element = new T[n];
-				for (unsigned int i = 0; i < n; i++) {
-					element[i] = 0;
-				}
 				s = n;
 			}
 			else {
@@ -57,6 +54,11 @@ template <typename T> class Array {
 		};
 
 		T& operator[](unsigned int index) {
+			if (index >= s)
+				throw OutOfRangeException();
+			return (element[index]);
+		}
+		const T& operator[](unsigned int index) const {
 			if (index >= s)
 				throw OutOfRangeException();
 			return (element[index]);

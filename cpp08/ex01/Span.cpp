@@ -24,6 +24,9 @@ const char *Span::spanIsFull::what() const throw() {
 const char *Span::noEnoughElement::what() const throw() {
 	return ("There arn't enough element !!");
 }
+const char *Span::rangeIsbigger::what() const throw() {
+	return ("The range is bigger than max size !!");
+}
 
 void Span::addNumber(int num) {
 	if (arr.size() == N)
@@ -56,17 +59,8 @@ int Span::longestSpan() {
 	}
 	return (max);
 }
-void Span::addManyNumber() {
-	srand(time(NULL));
-	for (unsigned int i = 0; i < N; i++) {
-		while (1)
-		{
-			int num = rand() % N;
-			std::vector<int>::iterator it = std::find(arr.begin(), arr.end(), num);
-			if (it == arr.end()) {
-				addNumber(num);
-				break;
-			}
-		}
-	}
+void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+	if (std::distance(begin, end) + arr.size() > N)
+		throw (rangeIsbigger());
+	arr.insert(arr.end(), begin, end);
 }
