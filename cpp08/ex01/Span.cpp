@@ -38,25 +38,18 @@ int Span::shortestSpan() {
 		throw (noEnoughElement());
 	int min = std::numeric_limits<int>::max();
 	int span;
-	for (unsigned int i = 0; i < N; i++) {
-		for (unsigned int j = i + 1; j < N; j++) {
-			span = std::abs(arr[i] - arr[j]);
-			min = std::min(span, min);
-		}
+	std::sort(arr.begin(), arr.end());
+	for (unsigned int i = 1; i < N; i++) {
+		span = std::abs(arr[i] - arr[i - 1]);
+		min = std::min(span, min);
 	}
 	return (min);
 }
 int Span::longestSpan() {
 	if (arr.size() == 1 || arr.empty())
 		throw (noEnoughElement());
-	int max = std::numeric_limits<int>::min();
-	int span;
-	for (unsigned int i = 0; i < N; i++) {
-		for (unsigned int j = i + 1; j < N; j++) {
-			span = std::abs(arr[i] - arr[j]);
-			max = std::max(span, max);
-		}
-	}
+	std::sort(arr.begin(), arr.end());
+	int max = arr.back() - arr.front();
 	return (max);
 }
 void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end) {

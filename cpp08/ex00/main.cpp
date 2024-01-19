@@ -5,7 +5,7 @@ int main() {
 	for (int i = 0; i < 5; i++){
 		numbers.push_back(i);
 	}
-	int valueToFind = 0;
+	int valueToFind = 2;
 
 	try {
 		std::vector<int>::iterator result = easyfind(numbers, valueToFind);

@@ -12,8 +12,8 @@ class NoOccurence : public std::exception
 	}
 };
 
-template <typename T> typename T::iterator easyfind(T firstP, int secondP) {
-	typename T::iterator it = std::find(firstP.begin(), firstP.end(), secondP);
+template <typename T> typename T::iterator easyfind(T firstP, int value) {
+	typename T::iterator it = std::find(firstP.begin(), firstP.end(), value);
 	if (it == firstP.end())
 		throw NoOccurence();
 	return (it);
