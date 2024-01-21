@@ -11,7 +11,7 @@ int main(int ac, char** av) {
 		std::getline(data, str);
 		while (std::getline(data, str)) {
 			std::deque<std::string> result = splitString(str, ',');
-			dequeData.push_back(Data(result[0], stringToDouble(result[1])));
+			dequeData.push_back(Data(result[0], stringToFloat(result[1])));
 		}
 		amountOfBtc(inputFile, dequeData);
 	}

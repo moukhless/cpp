@@ -62,9 +62,9 @@ std::deque<std::string> splitString(std::string& input, char delimiter) {
 	return tokens;
 }
 
-double stringToDouble(std::string& str) {
+float stringToFloat(std::string& str) {
 	char* endptr;
-	double result = std::strtod(str.c_str(), &endptr);
+	float result = std::strtod(str.c_str(), &endptr);
 
 	if (*endptr != '\0' || endptr == str.c_str()) {
 		throw std::runtime_error("");
@@ -154,9 +154,9 @@ bool validDate(std::string& date) {
 
 bool validValue(std::string value) {
 	value.erase(0, 1);
-	double valueF;
+	float valueF;
 	try {
-		valueF = stringToDouble(value);
+		valueF = stringToFloat(value);
 	}catch (const std::exception& e) {
 		std::cout << "Error: invalid value" << std::endl;
 		return (false);
@@ -167,6 +167,10 @@ bool validValue(std::string value) {
 	}
 	if (valueF > 1000) {
 		std::cout << "Error: too large a number." << std::endl;
+		return (false);
+	}
+	if (value.find('-') != std::string::npos) {
+		std::cout << "Error: invalid value" << std::endl;
 		return (false);
 	}
 	return (true);
@@ -202,13 +206,13 @@ void	amountOfBtc(std::ifstream& inputFile, std::deque<Data> dequeData) {
 			if (dequeData[i].getDate() >= result[0]) {
 				check = 1;
 				if (dequeData[i].getDate() == result[0]) {
-					std::cout << std::setprecision(2) << dequeData[i].getValue() * stringToDouble(result[1]) << std::endl;
+					std::cout << dequeData[i].getValue() * stringToFloat(result[1]) << std::endl;
 				}
 				else {
 					if (i != 0)
-						std::cout << std::setprecision(2) << dequeData[i - 1].getValue() * stringToDouble(result[1]) << std::endl;
+						std::cout << dequeData[i - 1].getValue() * stringToFloat(result[1]) << std::endl;
 					else
-						std::cout << std::setprecision(2) << dequeData[i].getValue() * stringToDouble(result[1]) << std::endl;
+						std::cout << dequeData[i].getValue() * stringToFloat(result[1]) << std::endl;
 				}
 				break;
 			}
