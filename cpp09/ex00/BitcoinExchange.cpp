@@ -200,24 +200,27 @@ void	amountOfBtc(std::ifstream& inputFile, std::deque<Data> dequeData) {
 		if (!validValue(result[1])) {
 			continue;
 		}
-		std::cout << result[0] << " => " << result[1].erase(0, 1) << " = ";
 		int check = 0;
 		for (unsigned long i = 0; i < dequeData.size(); i++) {
 			if (dequeData[i].getDate() >= result[0]) {
 				check = 1;
 				if (dequeData[i].getDate() == result[0]) {
+					std::cout << result[0] << " => " << result[1].erase(0, 1) << " = ";
 					std::cout << dequeData[i].getValue() * stringToFloat(result[1]) << std::endl;
 				}
 				else {
-					if (i != 0)
-						std::cout << dequeData[i - 1].getValue() * stringToFloat(result[1]) << std::endl;
-					else
+					if (i != 0) {
+						std::cout << result[0] << " => " << result[1].erase(0, 1) << " = ";
 						std::cout << dequeData[i].getValue() * stringToFloat(result[1]) << std::endl;
+					}
+					else
+						std::cout << "Error: invalid date" << std::endl;
 				}
 				break;
 			}
 		}
 		if (!check) {
+			std::cout << result[0] << " => " << result[1].erase(0, 1) << " = ";
 			std::cout << std::setprecision(2) << dequeData[dequeData.size() - 1].getValue() << std::endl;
 		}
 	}
