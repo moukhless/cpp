@@ -201,7 +201,7 @@ void	use_vector(int ac, char** av) {
 	std::vector<std::pair<int, int> > pairArr;
 	int lastElemetent;
 	std::vector<int> arr;
-	unsigned long bTime = get_time(1000);
+	clock_t start = clock();
 	if (unsortedArr.size() != 1) {
 		fillPairsInArr(pairArr, unsortedArr, lastElemetent);
 		comparPairs(pairArr);
@@ -213,14 +213,14 @@ void	use_vector(int ac, char** av) {
 			arr.insert(low, lastElemetent);
 		}
 	}
-	unsigned long etime = get_time(1000);
+	clock_t end = clock();
 	std::cout << "After: ";
 	if (unsortedArr.size() == 1) 
 		printArr(unsortedArr);
 	else
 		printArr(arr);
 	std::cout << "Time to process a range of " << unsortedArr.size() << " elements with std::vector : ";
-	std::cout << etime - bTime << " us" << std::endl;
+	std::cout << static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000.0 << " us" << std::endl;
 }
 
 void	use_list(int ac, char** av) {
@@ -229,7 +229,7 @@ void	use_list(int ac, char** av) {
 	std::list<std::pair<int, int> > pairArr;
 	int lastElemetent;
 	std::list<int> arr;
-	unsigned long bTime = get_time(1000);
+	clock_t start = clock();
 	if (unsortedList.size() != 1) {
 		fillPairsInArr(pairArr, unsortedList, lastElemetent);
 		comparPairs(pairArr);
@@ -241,7 +241,7 @@ void	use_list(int ac, char** av) {
 			arr.insert(low, lastElemetent);
 		}
 	}
-	unsigned long eTime = get_time(1000);
-	std::cout << "Time to process a range of " << unsortedList.size() << " elements with std::list : ";
-	std::cout << eTime - bTime << " us" << std::endl;
+	clock_t end = clock();
+	std::cout << "Time to process a range of " << unsortedList.size() << " elements with std::list   : ";
+	std::cout << (static_cast<double>(end - start) / CLOCKS_PER_SEC ) * 1000000.0 << " us" << std::endl;
 }
