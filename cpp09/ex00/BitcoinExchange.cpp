@@ -221,7 +221,7 @@ void	amountOfBtc(std::ifstream& inputFile, std::deque<Data> dequeData) {
 		}
 		if (!check) {
 			std::cout << result[0] << " => " << result[1].erase(0, 1) << " = ";
-			std::cout << std::setprecision(2) << dequeData[dequeData.size() - 1].getValue() << std::endl;
+			std::cout << dequeData[dequeData.size() - 1].getValue() * stringToFloat(result[1]) << std::endl;
 		}
 	}
 }
