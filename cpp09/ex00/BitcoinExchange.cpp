@@ -155,6 +155,11 @@ bool validDate(std::string& date) {
 bool validValue(std::string value) {
 	value.erase(0, 1);
 	float valueF;
+
+	if (value[0] == '.' || value[value.length() - 1] == '.'){
+		std::cout << "Error: invalid value" << std::endl;
+		return (false);
+	}
 	try {
 		valueF = stringToFloat(value);
 	}catch (const std::exception& e) {
