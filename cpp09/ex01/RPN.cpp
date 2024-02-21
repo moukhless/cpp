@@ -45,6 +45,10 @@ void	ft_RPN(std::queue<std::string>& queueInput) {
 				result = firstNum - secondNum;
 				break;
 			case '/':
+				if (secondNum == 0) {
+					std::cout << "Error" << std::endl;
+					return ;
+				}
 				result = firstNum / secondNum;
 				break;
 			case '*':
